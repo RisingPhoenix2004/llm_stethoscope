@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "646232894556",
+    "project_id": "llmstethoscope-e226c",
+    "storage_bucket": "llmstethoscope-e226c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646232894556:android:ce50eae3aadb907867ca99",
+        "android_client_info": {
+          "package_name": "com.example.llm_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwNYpjY_D9Ku6VkDULpF5P_SOygrfsuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646232894556:android:a77cbbff2f7bfe9667ca99",
+        "android_client_info": {
+          "package_name": "com.example.llm_test_app.llm_stethoscope"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwNYpjY_D9Ku6VkDULpF5P_SOygrfsuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
