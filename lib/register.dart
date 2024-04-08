@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/auth.dart';
+import 'package:llm_stethoscope/home.dart';
 
 import 'login.dart';
 
@@ -174,7 +175,7 @@ class _MyRegisterState extends State<MyRegister> {
       Future.delayed(const Duration(seconds: 3), () {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const MyLogin()),
+          MaterialPageRoute(builder: (context) => const MyHome()),
               (Route<dynamic> route) => false,
         );
       });
