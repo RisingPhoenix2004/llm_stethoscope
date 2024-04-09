@@ -55,17 +55,25 @@ class _MyRegisterState extends State<MyRegister> {
                     .height * 0.5, right: 35, left: 35),
                 child: Column(
                   children: [
-                    TextField(
+                    TextFormField(
                         controller: usernamecontroller,
                         decoration: InputDecoration(
                             fillColor: Colors.grey.shade100,
                             filled: true,
                             hintText: 'Username',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10))
-                        )),
+                                borderRadius: BorderRadius.circular(10)),
+                        ),
+                      validator: (value){
+                          if(value!.isEmpty)
+                            {
+                              return 'Username is required';
+                            }
+                          return null;
+                      },
+                    ),
                     SizedBox(height: 20,),
-                    TextField(
+                    TextFormField(
                         controller: emailcontroller,
                         decoration: InputDecoration(
                             fillColor: Colors.grey.shade100,
@@ -73,9 +81,21 @@ class _MyRegisterState extends State<MyRegister> {
                             hintText: 'Email',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))
-                        )),
+                        ),
+                      validator: (value){
+                        if(value!.isEmpty)
+                        {
+                          return 'Email required';
+                        }
+                        if(!value.contains("@"))
+                          {
+                            return 'Enter a valid email';
+                          }
+                        return null;
+                      },
+                    ),
                     SizedBox(height: 20,),
-                    TextField(
+                    TextFormField(
                         controller: phonenumbercontroller,
                         decoration: InputDecoration(
                             fillColor: Colors.grey.shade100,
@@ -83,9 +103,18 @@ class _MyRegisterState extends State<MyRegister> {
                             hintText: 'Phone Number',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))
-                        )),
+                        ),
+                      validator: (value){
+                        if(value!.isEmpty)
+                        {
+                          return 'Phone Number required';
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.phone,
+                    ),
                     SizedBox(height: 20,),
-                    TextField(
+                    TextFormField(
                         controller: passwordcontroller,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -94,13 +123,25 @@ class _MyRegisterState extends State<MyRegister> {
                             hintText: 'Password',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))
-                        )),
+                        ),
+                      validator: (value){
+                        if(value!.isEmpty)
+                        {
+                          return 'Password is required';
+                        }
+                        if(value.length<8)
+                          {
+                            return 'Password must contain atleast 8 characters';
+                          }
+                        return null;
+                      },
+                    ),
                     SizedBox(height: 10,),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [Text(
                           'Sign Up', style: TextStyle(
-                            fontSize: 27, fontWeight: FontWeight.w700),
+                            fontSize: 27,color: Colors.white, fontWeight: FontWeight.w700),
                         ),
                           CircleAvatar(
                             radius: 30,
@@ -116,13 +157,17 @@ class _MyRegisterState extends State<MyRegister> {
                         ]),
                     Row(
                       children: [
-                        Text("Already have an account?"),
+                        Text("Already have an account?",style: TextStyle(
+                          color: Colors.white
+                        ),),
                         TextButton(onPressed: () {
                           Navigator.pushNamed(context, "login");
                         },
                             child: Text('Login', style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                fontSize: 18
+                                fontSize: 18,
+                              color: Colors.white,
+
                             ),
                             ))
                       ],
