@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/auth.dart';
 import 'package:llm_stethoscope/emailverify.dart';
 import 'package:llm_stethoscope/home.dart';
+import 'package:llm_stethoscope/middle.dart';
 
 import 'login.dart';
 
@@ -150,7 +151,7 @@ class _MyRegisterState extends State<MyRegister> {
                             child: GestureDetector(
                               child: IconButton(
                                 color: Colors.white,
-                                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>MyEmailVerify()));},
+                                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>MyMiddle()));},
                                 // onPressed: (){registerUser(email :emailcontroller.text, password: passwordcontroller.text, username: usernamecontroller.text, phone :phonenumbercontroller.text,);},
                                 icon: Icon(Icons.arrow_forward),
                               ),

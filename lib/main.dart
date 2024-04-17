@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/login.dart';
 import 'package:llm_stethoscope/register.dart';
 import 'firebase_options.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 void main()
 async{
@@ -11,6 +12,7 @@ async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FirebaseAppCheck.instance.activate();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'login',

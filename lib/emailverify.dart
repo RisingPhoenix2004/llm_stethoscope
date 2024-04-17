@@ -1,5 +1,6 @@
 import 'package:email_otp/email_otp.dart';
 import 'package:flutter/material.dart';
+import 'package:llm_stethoscope/home.dart';
 class MyEmailVerify extends StatefulWidget {
   const MyEmailVerify({super.key});
 
@@ -105,6 +106,7 @@ class _MyEmailVerifyState extends State<MyEmailVerify> {
                     content: Text('OTP is verified'),
                     backgroundColor: Colors.green,
                   ));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHome()));
                 }
               else
                 {
