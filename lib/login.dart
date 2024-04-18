@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/auth.dart';
+import 'package:llm_stethoscope/home.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -95,11 +96,11 @@ class _MyLoginState extends State<MyLogin> {
                               radius: 30,
                               backgroundColor: Color(0xff4c505b),
                               child: GestureDetector(
-                                onTap:login,
+                                onTap:(){login(emailcontroller.text, passwordcontroller.text);},
                                 child: IconButton(
                                   color: Colors.white,
-                                  onPressed: (){
-                                    Navigator.pushNamed(context, 'home');
+                                  onPressed:(){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHome()));
                                   },
                                   icon: Icon(Icons.arrow_forward),
                                 ),
@@ -130,20 +131,26 @@ class _MyLoginState extends State<MyLogin> {
     ),
     );
   }
-  void login() async{
+  void login(String email,String password) async {
+    try {
+      String email = emailcontroller.text;
+      String password = passwordcontroller.text;
 
-    String email = emailcontroller.text;
-    String password = passwordcontroller.text;
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-    User? user = await _firebaseAuth.signUpWithEmailAndPassword(email, password);
-
-    if(user!=null)
-    {
-      print("User Logged in successfully !");
-      Navigator.pushNamed(context, 'home');
-    }
-    else{
-      print("User Logging Error");
+      if (userCredential.user != null) {
+        print("User logged in successfully !");
+        Navigator.pushNamed(context, 'home');
+      } else {
+        print("User logging error");
+      }
+    } catch (e) {
+      print("Error logging in: $e");
+      // Handle error here, such as displaying an error message to the user
     }
   }
+
 }
