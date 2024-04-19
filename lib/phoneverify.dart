@@ -52,37 +52,44 @@ class _MyPhoneVerifyState extends State<MyPhoneVerify> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: TextFormField(
-                controller: mobilenumbercontroller,
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
-                    hintText: 'Mobile Number',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                  ),
-                  validator: (value){
-                    if(value!.isEmpty)
-                    {
-                      return 'Mobile Number Required';
-                    }
-                    if(value.length<10)
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+          ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: TextFormField(
+                  controller: mobilenumbercontroller,
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey.shade100,
+                      filled: true,
+                      hintText: 'Mobile Number',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    validator: (value){
+                      if(value!.isEmpty)
                       {
-                        return 'Enter Valid Mobile Number';
+                        return 'Mobile Number Required';
                       }
-                    return null;
-                  }
+                      if(value.length<10)
+                        {
+                          return 'Enter Valid Mobile Number';
+                        }
+                      return null;
+                    }
+                ),
               ),
-            ),
-            SizedBox(height: 10,),
-            ElevatedButton(onPressed:verifyPhoneNumber,
-                child: Text('Verify'))
-          ],
+              SizedBox(height: 10,),
+              ElevatedButton(onPressed:verifyPhoneNumber,
+                  child: Text('Verify'))
+            ],
+          ),
         ),
       ),
     );

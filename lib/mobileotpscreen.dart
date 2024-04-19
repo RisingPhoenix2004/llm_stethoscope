@@ -48,32 +48,39 @@ class _MyMobileOTPScreenState extends State<MyMobileOTPScreen> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: TextFormField(
-                  controller: otpcontroller,
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
-                    hintText: 'OTP',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                  ),
-                  validator: (value){
-                    if(value!.isEmpty)
-                    {
-                      return 'OTP Required';
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+          ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: TextFormField(
+                    controller: otpcontroller,
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey.shade100,
+                      filled: true,
+                      hintText: 'OTP',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                    validator: (value){
+                      if(value!.isEmpty)
+                      {
+                        return 'OTP Required';
+                      }
+                      return null;
                     }
-                    return null;
-                  }
+                ),
               ),
-            ),
-            SizedBox(height:30,),
-            ElevatedButton(onPressed: signInWithOTP, child: Text('OTP'))
-          ],
+              SizedBox(height:30,),
+              ElevatedButton(onPressed: signInWithOTP, child: Text('OTP'))
+            ],
+          ),
         ),
       ),
     );

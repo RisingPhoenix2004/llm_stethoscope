@@ -15,7 +15,7 @@ class _MyMiddleState extends State<MyMiddle> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Verify Email',
+          'Verification',
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -26,57 +26,69 @@ class _MyMiddleState extends State<MyMiddle> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap:(){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>MyEmailVerify()));
-              } ,
-              child: Container(
-                padding: const EdgeInsets.all(25),
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Verify through email",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
+
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+          ),
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyEmailVerify()));
+                    } ,
+                    child: Container(
+                      padding: const EdgeInsets.all(25),
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Verify through email",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
-            SizedBox(height: 30,),
-            GestureDetector(
-              onTap:(){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>MyPhoneVerify()));
-              } ,
-              child: Container(
-                padding: const EdgeInsets.all(25),
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Verify through Phone",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(height: 30,),
+                  GestureDetector(
+                    onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyPhoneVerify()));
+                    } ,
+                    child: Container(
+                      padding: const EdgeInsets.all(25),
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Verify through Phone",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

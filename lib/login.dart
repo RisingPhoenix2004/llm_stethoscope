@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/auth.dart';
 import 'package:llm_stethoscope/home.dart';
+import 'package:llm_stethoscope/register.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -86,34 +87,55 @@ class _MyLoginState extends State<MyLogin> {
                           color: Colors.white,
                           decoration: TextDecoration.underline,
                         ),)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text(
-                            'Login',style: TextStyle(
-                              fontSize: 27,color: Colors.white,fontWeight:FontWeight.w700),
-                          ),
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Color(0xff4c505b),
-                              child: GestureDetector(
-                                onTap:(){login(emailcontroller.text, passwordcontroller.text);},
-                                child: IconButton(
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //   children: [Text(
+                        //     'Login',style: TextStyle(
+                        //       fontSize: 27,color: Colors.white,fontWeight:FontWeight.w700),
+                        //   ),
+                        //     CircleAvatar(
+                        //       radius: 30,
+                        //       backgroundColor: Color(0xff4c505b),
+                        //       child: GestureDetector(
+                        //         onTap:(){login(emailcontroller.text, passwordcontroller.text);},
+                        //         child: IconButton(
+                        //           color: Colors.white,
+                        //           onPressed:(){
+                        //             Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHome()));
+                        //           },
+                        //           icon: Icon(Icons.arrow_forward),
+                        //         ),
+                        //       ),
+                        //     )
+                        // ]),
+                        GestureDetector(
+                          onTap:(){login(emailcontroller.text, passwordcontroller.text);},
+                          child: Container(
+                            padding: const EdgeInsets.all(25),
+                            margin: const EdgeInsets.symmetric(horizontal: 25),
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
                                   color: Colors.white,
-                                  onPressed:(){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHome()));
-                                  },
-                                  icon: Icon(Icons.arrow_forward),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            )
-                        ]),
+                            ),
+                          ),
+                        ),
                 Row(
                   children: [
                     Text("Don't have an account?",style: TextStyle(color: Colors.white),),
                     TextButton(onPressed: (){
-                      Navigator.pushNamed(context,"register");
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyRegister()));
                     },
-                        child: Text('SignUp',style: TextStyle(
+                        child: Text('Sign Up',style: TextStyle(
                       decoration: TextDecoration.underline,
                       fontSize: 18,
                       color: Colors.white
