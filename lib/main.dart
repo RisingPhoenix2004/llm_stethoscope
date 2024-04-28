@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:llm_stethoscope/login.dart';
 import 'package:llm_stethoscope/register.dart';
+import 'package:llm_stethoscope/home.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'firebase_options.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'login': (context) => MyLogin(),
         'register': (context) => MyRegister(),
+        'home':((context) => MyHome())
       },
     );
   }
