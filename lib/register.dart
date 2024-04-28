@@ -155,6 +155,7 @@ class _MyRegisterState extends State<MyRegister> {
           
                     if(username.isNotEmpty && email.isNotEmpty && phone.isNotEmpty && password.isNotEmpty )
                       {
+                        print("0");
                         registerUser(email :emailcontroller.text, password: passwordcontroller.text, username: usernamecontroller.text, phone :phonenumbercontroller.text,);
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>MyMiddle()));
                       }

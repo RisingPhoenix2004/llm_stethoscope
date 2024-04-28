@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:llm_stethoscope/home.dart';
 class MyMobileOTPScreen extends StatefulWidget {
-  final verificationID;
+  final String verificationID;
   const MyMobileOTPScreen({Key? key,required this.verificationID}) : super(key: key);
 
   @override
@@ -10,21 +10,23 @@ class MyMobileOTPScreen extends StatefulWidget {
 }
 
 class _MyMobileOTPScreenState extends State<MyMobileOTPScreen> {
-  TextEditingController otpcontroller=TextEditingController();
+  TextEditingController otpcontroller = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> signInWithOTP()async{
     try{
-      PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: widget.verificationID,
-          smsCode: otpcontroller.text.trim());
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+           verificationId: widget.verificationID,
+          smsCode: otpcontroller.text.trim()
+      );
       UserCredential userCredential =
       await _auth.signInWithCredential(credential);
       User? user = userCredential.user;
-      if(user!=null){
+      if(user !=  null){
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHome()));
       }
       else{
-
+      //   Sign In Failure
       }
     }
     catch(err)
