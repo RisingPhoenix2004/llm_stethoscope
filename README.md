@@ -189,4 +189,4 @@ Contributions are welcome and encouraged!
 - [Kaggle Respiratory Sound Database](https://www.kaggle.com/datasets/vbookshelf/respiratory-sound-database)
 - [Flutter](https://flutter.dev/)
 - [Firebase](https://firebase.google.com/)
-* [TensorFlow](https://www.tensorflow.org/)
+- [TensorFlow](https://www.tensorflow.org/)
